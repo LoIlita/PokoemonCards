@@ -3,18 +3,13 @@ import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 
 export default function Layout() {
-return (
+  return (
     <div>
-        <Background />
-        <Navbar />
-        <main>
-            <Outlet />
-        </main>
+      <Background />
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
     </div>
-
-    
-);
-
-
-
+  );
 }
