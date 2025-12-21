@@ -12,6 +12,13 @@ const opacityMode = {
 	on: `hover:opacity-10 transition-opacity duration-300`,
 } as const;
 
+enum CardType {
+	BUG = "BUG",
+	FIRE = "FIRE",
+	WATER = "WATER",
+	ELECTRIC = "ELECTRIC",
+}
+
 type PokemonCardProps = {
 	src: string;
 	alt: string;
@@ -19,11 +26,13 @@ type PokemonCardProps = {
 	scale?: keyof typeof scaleVariants;
 	size?: keyof typeof sizeVariants;
 	price?: boolean;
+	type: CardType;
 };
 
 export default function PokemonCard({
 	src,
 	alt,
+	type = CardType.FIRE,
 	scale,
 	size = "md",
 	price = false,
@@ -37,6 +46,7 @@ export default function PokemonCard({
 				price && opacityMode.on,
 				"m-2 overflow-hidden rounded-lg",
 				className,
+				type,
 			]
 				.filter(Boolean)
 				.join(" ")}
@@ -46,6 +56,6 @@ export default function PokemonCard({
 	);
 }
 
-export type { PokemonCardProps };
+export { PokemonCardProps, CardType };
 
 // dojdzie cena i procenty

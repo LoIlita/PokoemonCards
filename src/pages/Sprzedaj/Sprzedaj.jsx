@@ -1,7 +1,26 @@
+import {CardType} from "../../components/pokemonCard";
+import PokemonCardList from "../../components/pokemonCardList";
+
+
+
+
+
 export default function Sprzedaj() {
   return (
     <div className="min-h-screen flex items-center justify-center text-white">
-      sprzedaj page
+      
+      <PokemonCardList
+      cardProps={{type:CardType.FIRE} }
+      
+      
+
+      
+      />
+
+
+      
+
+  
     </div>
   );
 }

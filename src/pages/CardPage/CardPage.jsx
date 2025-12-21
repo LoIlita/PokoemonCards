@@ -1,13 +1,17 @@
+
 import PokemonCardList from "../../components/pokemonCardList.js";
+import { cards } from "../../components/dataCard.js";
 
 export default function CardsPage() {
+  
+
   return (
     <div>
       <div className=" flex flex-col items-center justify-center p-10   ">
         <div className="border-2 border-violet-300 rounded-3xl mb-10">
           {
             <PokemonCardList
-              cardProps={{ size: "sm",  }}
+              cardProps={{ size: "sm"  }}
               className= "flex justify-center items-center "
             />
           }
