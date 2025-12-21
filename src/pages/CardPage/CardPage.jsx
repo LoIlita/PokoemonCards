@@ -1,11 +1,13 @@
-
+import { useParams } from "react-router-dom";
 import PokemonCardList from "../../components/pokemonCardList.js";
-import { cards } from "../../components/dataCard.js";
+
 
 export default function CardsPage() {
-  
+    const { type } = useParams();
+  console.log(type)
 
   return (
+    
     <div>
       <div className=" flex flex-col items-center justify-center p-10   ">
         <div className="border-2 border-violet-300 rounded-3xl mb-10">
@@ -27,7 +29,7 @@ export default function CardsPage() {
         <div className="rounded-3xl   gap-2 m-10 flex">
           {
             <PokemonCardList
-              cardProps={{ size: "md", price: true }}
+              cardProps={{ size: "md", price: true}}
               className="grid 2xl:grid-cols-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
             />
           }

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 type ChestProps = {
   type: string;
@@ -9,7 +9,7 @@ type ChestProps = {
 // skąd wiem że type to fire bug itp?
 
 export default function Chest({ type, src }: ChestProps) {
-  const navigation = useNavigate();
+  //const navigation = useNavigate();
 
   return (
     <div className=" w-70 h-70 bg-zinc-700  border border-zinc-800 hover:border-violet-500 p-4">
@@ -18,13 +18,26 @@ export default function Chest({ type, src }: ChestProps) {
         <p className="font-semibold text-white">{type}</p>
       </div>
 
-      <button
+      {/* <button
         type="button"
         className="border border-blue-600 bg-blue-500 hover:bg-blue-700 text-white font-semibold px-4 py-2 mt-4 rounded hover:scale-105 transition-all duration-300"
-        onClick={() => navigation(`cardPage/${type}`)}
+        onClick={() => navigation(`/sprzedaj?type=${type}`)}
       >
         Otwórz skrzynkę
-      </button>
+      </button> */}
+
+      <Link
+      to={`/sprzedaj?type=${type}&id=5`} 
+      > 
+      <div className="border border-blue-600 bg-blue-500 hover:bg-blue-700 text-white font-semibold px-4 py-2 mt-4 rounded hover:scale-105 transition-all duration-300">
+        open
+      </div>
+
+      </Link>
+
+
+
+
     </div>
   );
 }
