@@ -1,30 +1,21 @@
-import { useState } from "react";
-import { Card, cards } from "../../components/dataCard";
 import ParseCardType from "../../components/parseCardType";
 import PokemonCard from "../../components/pokemonCard";
 import PokemonCardList from "../../components/pokemonCardList";
+import useDrawRandomCard from "../../hooks/useDrawCard";
 
 export default function Case() {
   const cardType = ParseCardType();
-
-  const [drawCard, setDrawCard] = useState<Card | null>(null);
-
-  function drawRandomCard() {
-    const kind = cardType ? cards.filter((c) => c.type === cardType) : cards;
-    if (kind.length === 0) return;
-    const randomCard = Math.floor(Math.random() * kind.length);
-    setDrawCard(kind[randomCard]);
-  }
+  const { drawnCard, drawRandomCard } = useDrawRandomCard();
 
   return (
     <div>
       <div className=" flex flex-col items-center justify-center p-10   ">
-        <div className="border-2 border-violet-300 rounded-3xl mb-10">
+        <div className="border-2 border-violet-300 rounded-3xl mb-10  ">
           {
             <PokemonCardList
               filterType={cardType}
               cardProps={{ size: "sm" }}
-              className="flex justify-center items-center "
+              className="flex justify-center items-center"
             />
           }
         </div>
@@ -38,7 +29,7 @@ export default function Case() {
         </button>
 
         <div>
-          {drawCard && <PokemonCard src={drawCard.src} alt={drawCard.alt} />}
+          {drawnCard && <PokemonCard src={drawnCard.src} alt={drawnCard.alt} />}
         </div>
 
         <div className="rounded-3xl   gap-2 m-10 flex">
